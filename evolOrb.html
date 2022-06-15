@@ -1,0 +1,65 @@
+<head>
+    <meta charset="utf-8"> 
+    <style>
+        div{
+            text-align: center;
+        }
+    </style>
+    
+</head>
+
+<body >
+    
+<div>
+<h1 style="text-align:center ;">POE 크래프팅</h1>
+
+<form action="write.php" method="post">
+<section id="main">
+<label>비밀번호<br></label><input type="password" length=5 required name="pwd"><p>
+<label>제목<br></label><input type="text" required name="title"><p>
+
+<div style="text-align: center;">
+<img src="./image/ShortBow.png" id = "drop">
+<p id = "prefix1" style="color:red "></p>
+<p id = "prefix2" style ="color: blue"></p>
+<p id = "prefix3" style ="color: green"></p>
+<p id = "suffix1"></p>
+<p id = "suffix2"></p>
+<p id = "suffix3"></p>
+</div>
+<br>
+
+<div style="text-align: center;">
+<img src="./image/evolOrb.png" id ="drag" draggable = "true"><input type="number"   id="evolcount" value=0 required name="evolcount" style =width:55px; >
+<img src="./image/Dread.png" id ="drag1" draggable = "true"><input type="number" id="dreadcount" required name="dreadcount"value=0 style =width:55px>
+<img src="./image/exalOrb.png" id ="drag2" draggable = "true"><input type="number" id="exalcount" required name="exalcount" value =0 style=width:55px>
+<img src="./image/scouring.png" id ="drag3" draggable="true">
+<img src="./image/AnnullOrb.png" id ="drag4" draggable="true"><input type="number" id="annulcount" required name="annulcount" value=0 style =width:55px>
+</div>
+
+
+
+<div style="text-align:center ;">
+<label for="craftPre">크래프팅</label>
+<select name ="pre" id ="craftPre">
+    <option value="pre1">제작접두1</option>
+    <option value="pre2">제작접두2</option>
+    <option value="pre3">제작접두3</option>
+</select>
+<select name ="suf" id ="craftsuf">
+    <option value="suf1">제작접미1</option>
+    <option value="suf2">제작접미2</option>
+    <option value="suf3">제작접미3</option>
+</select>
+</div>
+
+<label>글내용<br></label><textarea rows=10 cols=70 required name="content"></textarea><br>
+<input type ="submit" value = "등록하기">
+</form>
+</section>
+</div>
+<script src="js/evolOrb.js">
+</script>
+
+
+</body>
