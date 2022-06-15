@@ -1,0 +1,116 @@
+document.getElementById('drop').ondragover = function(shortbow){
+    shortbow.preventDefault();
+};
+document.getElementById('drop').ondrop = function(){
+    
+  
+  
+  if(shortbow.rarity ==0){
+    shortbow.evolRandomPrefix();
+    shortbow.evolRandomSuffix();
+    }
+    else {console.log('노멀 아이템만 사용 가능');}
+  
+  
+  
+    
+  
+}
+
+
+
+let prefix = ['접두1','접두2','접두3','접두4','접두5'];
+let suffix = ['접미1','접미2','접미3','접미4','접미5'];
+
+const shortbow = {
+  rarity : 0,
+  prefix1 : '',
+  prefix2 : '',
+  prefix3 : '',
+  suffix1 : '',
+  suffix2 : '',
+  suffix3 : '',
+  OptionNum : 0,
+  evolRandomPrefix : function(){
+     
+    this.optionNum = Math.floor(Math.random()*4);
+    
+    
+    this.rarity = 1;
+    if(this.optionNum > 0){
+    this.prefix1 = prefix[Math.floor(Math.random()*5)];
+    this.optionNum = 0;
+    console.log(this.prefix1);
+    document.getElementById("prefix1").innerHTML=this.prefix1;
+    }
+    
+  },
+  evolRandomSuffix : function() {
+    
+      this.optionNum = Math.floor(Math.random()*4);
+      if(this.optionNum >0|| this.prefix1 =='')
+      {
+      this.suffix1 = suffix[Math.floor(Math.random()*5)];
+      this.optionNum = 0;
+      console.log(this.suffix1);
+      document.getElementById("suffix1").innerHTML=this.suffix1;
+      }
+      
+  },
+   deafEssence: function(){
+      if(this.rarity ==1){console.log('매직 아이템에 사용 불가능합니다.');}
+      else {
+        this.reset();
+        this.rarity =2;
+        this.prefix1 = '접두5';
+        document.getElementById("prefix1").innerHTML=this.prefix1;
+        console.log(this.prefix1);
+        this.optionNum = Math.floor(Math.random()*4);
+        if(this.optionNum==0);
+        else if(this.optionNum==2) {
+          do{
+          this.prefix2 = prefix[Math.floor(Math.random()*5)];
+            
+          } while(dupCheckPre(this.prefix2)==0);
+          console.log(this.prefix2);
+          document.getElementById("prefix2").innerHTML=this.prefix2;
+          this.optionNum =0;
+        }
+        else if(this.optionNum ==3) {
+          do{
+            this.prefix2 = prefix[Math.floor(Math.random()*5)];
+            this.prefix3 = prefix[Math.floor(Math.random()*5)];
+          } while(dupCheckPre(this.prefix2)==0 && dupCheckPre(this.prefix3)==0);
+          console.log(this.prefix2);
+          document.getElementById("prefix2").innerHTML=this.prefix2;
+          console.log(this.prefix3);
+          document.getElementById("prefix3").innerHTML=this.prefix3;
+          this.optionNum = 0;
+        }
+      }
+  },
+  
+  dupCheckPre: function(option){
+    let count = 0;
+    if(option == this.prefix1) count++;
+    if(option == this.prefix2) count++;
+    if(option == this.prefix3) count++;
+
+    if(count > 1) return 1;
+    else return 0;
+    },
+  
+    
+  
+  
+  reset : function(){
+      this.rarity =0;
+    this.prefix1 = '';
+    this.prefix2 = '';
+    this.prefix3 = '';
+    this.suffix1 = '';
+    this.suffix2 = '';
+    this.suffix3 = '';
+  }
+  
+}
